@@ -1,0 +1,135 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./styles/global.css" />
+    <link rel="stylesheet" href="./styles/home.css" />
+    <link rel="stylesheet" href="./styles/modal.css" />
+    <title>DevMedia teste</title>
+</head>
+<script>
+    function handleActiveForm() {
+        const ideiaName = document.getElementsByName("ideia")[0].value;
+    }
+
+    function postForm(title, description) {
+        var httpRequest = null;
+        if (window.XMLHttpRequest) {
+            // Mozilla, Safari, ...
+            httpRequest = new XMLHttpRequest();
+        } else if (window.ActiveXObject) {
+            // IE 8 and older
+            httpRequest = new ActiveXObject("Microsoft.XMLHTTP");
+        }
+
+        httpRequest.open("POST", "/news", false);
+
+        httpRequest.setRequestHeader("Content-Type", "application/json");
+        httpRequest.setRequestHeader("Accept", "application/json");
+
+        function alertContents() {
+            if (httpRequest.readyState === 4) {
+                if (httpRequest.status === 200) {
+                    alert(httpRequest.responseText);
+                } else {
+                    alert("There was a problem with the request.");
+                }
+            }
+        }
+
+        // processar a resposta do servidor
+
+        httpRequest.send(
+            JSON.stringify({
+                title,
+                description,
+            })
+        );
+
+        httpRequest.onreadystatechange = alertContents();
+    }
+
+    function handleSendInformation() {
+        const title = document.getElementsByName("title")[0].value;
+        const description = document.getElementsByName("description")[0].value;
+
+        postForm(title, description);
+    }
+
+    function desactiveModal() {
+        const body = document.querySelector("body");
+        const modal = document.querySelector(".modal");
+        body.removeChild(modal);
+    }
+</script>
+
+<body>
+    <header>
+        <span> LOGO </span>
+        <nav>
+            <ul>
+                <li><a href="#" onClick="{activeModal()}">CADASTRAR NOTICIAS</a></li>
+                <li><a href="/news">EXIBIR NOTICIAS</a></li>
+            </ul>
+            <aside>
+                <form method="get" action="javascript:handleActiveForm();">
+                    <label for="ideia"></label>
+                    <input type="text" name="ideia" placeholder="digite o nome da noticia" />
+
+                    <a href="#" onClick="{handleActiveForm()}"><img src="./images/procurar.svg" alt="procurar" id="ideia" /></a>
+                </form>
+            </aside>
+        </nav>
+    </header>
+    <main>
+        <div class="ideia">
+            <h1>Titulo da ideia</h1>
+            <p>
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Suscipit autem non dolorum libero maiores dicta assumenda excepturi nemo qui alias, ipsa delectus? Quisquam corrupti amet dolore hic velit blanditiis architecto!
+            </p>
+            <a href="#">ACESSAR</a>
+        </div>
+        <div class="ideia">
+            <h1>Titulo da ideia</h1>
+            <p>
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Suscipit autem non dolorum libero maiores dicta assumenda excepturi nemo qui alias, ipsa delectus? Quisquam corrupti amet dolore hic velit blanditiis architecto!
+            </p>
+            <a href="#">ACESSAR</a>
+        </div>
+        <div class="ideia">
+            <h1>Titulo da ideia</h1>
+            <p>
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Suscipit autem non dolorum libero maiores dicta assumenda excepturi nemo qui alias, ipsa delectus? Quisquam corrupti amet dolore hic velit blanditiis architecto!
+            </p>
+            <a href="#">ACESSAR</a>
+        </div>
+        <div class="ideia">
+            <h1>Titulo da ideia</h1>
+            <p>
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Suscipit autem non dolorum libero maiores dicta assumenda excepturi nemo qui alias, ipsa delectus? Quisquam corrupti amet dolore hic velit blanditiis architecto!
+            </p>
+            <a href="#">ACESSAR</a>
+        </div>
+        <div class="ideia">
+            <h1>Titulo da ideia</h1>
+            <p>
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Suscipit autem non dolorum libero maiores dicta assumenda excepturi nemo qui alias, ipsa delectus? Quisquam corrupti amet dolore hic velit blanditiis architecto!
+            </p>
+            <a href="#">ACESSAR</a>
+        </div>
+        <div class="ideia">
+            <h1>Titulo da ideia</h1>
+            <p>
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Suscipit autem non dolorum libero maiores dicta assumenda excepturi nemo qui alias, ipsa delectus? Quisquam corrupti amet dolore hic velit blanditiis architecto!
+            </p>
+            <a href="#">ACESSAR</a>
+        </div>
+    </main>
+    <footer>
+        <span>DESENVOLVIDO POR WELLINGTON</span>
+    </footer>
+    <script src="./scripts/modal.js"></script>
+</body>
+
+</html>
