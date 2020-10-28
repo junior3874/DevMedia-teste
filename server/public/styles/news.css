@@ -1,5 +1,5 @@
 body {
-    background-color: #7d8597;
+    background-color: var(--color-primary);
     position: relative;
 }
 
@@ -9,7 +9,7 @@ header {
     justify-content: space-between;
     position: relative;
     margin-bottom: 12rem;
-    background-color: #979dac;
+    background-color: var(--color-secundary);
     font-size: 1.9rem;
 }
 
@@ -58,8 +58,7 @@ main .ideia {
     padding: 2.4rem;
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
-    align-items: center;
+    position: relative;
 }
 
 main .ideia h1 {
@@ -77,8 +76,15 @@ main .ideia a {
     font-size: 2rem;
     padding: 1.2rem 0;
     width: 50%;
-    background-color: gray;
+    background-color: var(--color-secundary);
     border-radius: 1.5rem;
+    position: absolute;
+    left: 25%;
+    bottom: 10%;
+}
+
+main .ideia a:hover {
+    background-color: var(--button-hover);
 }
 
 @media (min-width: 700px) {

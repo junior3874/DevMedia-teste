@@ -1,15 +1,16 @@
 body {
-    background-color: #7d8597;
+    background-color: var(--color-primary);
 }
 
 header {
+    width: 100%;
     display: flex;
     align-items: center;
     justify-content: space-between;
-    position: relative;
     margin-bottom: 12rem;
-    background-color: #979dac;
+    background-color: var(--color-secundary);
     font-size: 1.9rem;
+    padding: 0 2.5rem;
 }
 
 header span {
@@ -62,6 +63,7 @@ main {
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    padding-bottom: 10rem;
 }
 
 main .ideia {
@@ -72,8 +74,7 @@ main .ideia {
     padding: 2.4rem;
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
-    align-items: center;
+    position: relative;
 }
 
 main .ideia h1 {
@@ -91,8 +92,15 @@ main .ideia a {
     font-size: 2rem;
     padding: 1.2rem 0;
     width: 50%;
-    background-color: gray;
+    background-color: var(--color-secundary);
     border-radius: 1.5rem;
+    position: absolute;
+    left: 25%;
+    bottom: 10%;
+}
+
+main .ideia a:hover {
+    background-color: var(--button-hover);
 }
 
 footer {
@@ -102,16 +110,15 @@ footer {
     justify-content: center;
     align-items: center;
     height: 75px;
-    background-color: #495057;
+    background-color: var(--color-secundary);
+    position: fixed;
+    bottom: 0;
 }
 
 @media (min-width: 700px) {
     header {
-        padding: 0 10rem;
-    }
-    footer {
-        position: relative;
-        bottom: 0;
+        position: fixed;
+        z-index: 9;
     }
     header nav {
         display: flex;
@@ -121,7 +128,7 @@ footer {
         position: inherit;
         margin: 0 2.5rem;
         height: 50%;
-        width: auto;
+        width: 250px;
         padding: 0.2rem 2.4rem;
     }
     header aside input {
@@ -139,12 +146,23 @@ footer {
         white-space: nowrap;
     }
     main {
+        padding: 10rem 0;
         display: grid;
         grid-template-columns: 1fr 1fr;
         justify-items: center;
     }
     main .ideia {
-        height: 300px;
+        position: relative;
+        height: 350px;
+        align-items: flex-start;
+        padding: 2.5rem;
+        justify-content: flex-start;
+    }
+}
+
+@media (min-width: 825px) {
+    header {
+        padding: 0 10rem;
     }
 }
 
