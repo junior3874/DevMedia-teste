@@ -11,6 +11,7 @@ header {
     margin-bottom: 12rem;
     background-color: var(--color-secundary);
     font-size: 1.9rem;
+    border-radius: 0 0 8px 8px;
 }
 
 header span {
@@ -27,10 +28,13 @@ header a {
     text-decoration: none;
     color: black;
     font-weight: 600;
+    padding: 0.8rem 1.5rem;
 }
 
 header a:hover {
+    background-color: white;
     color: #0e0e0e;
+    border-radius: 8px;
 }
 
 footer {
@@ -41,6 +45,7 @@ footer {
     align-items: center;
     height: 75px;
     background-color: #495057;
+    border-radius: 8px 8px 0 0;
 }
 
 main {
@@ -64,6 +69,7 @@ main .ideia {
 main .ideia h1 {
     font-size: 2.4rem;
     margin-bottom: 1.2rem;
+    white-space: normal;
 }
 
 main .ideia a {
@@ -90,10 +96,15 @@ main .ideia a:hover {
 @media (min-width: 700px) {
     header {
         padding: 0 10rem;
+        position: fixed;
+        z-index: 9;
+        width: 100%;
+        top: 0;
     }
     footer {
-        position: relative;
+        position: fixed;
         bottom: 0;
+        z-index: 9;
     }
     header nav {
         display: flex;
@@ -111,6 +122,7 @@ main .ideia a:hover {
         white-space: nowrap;
     }
     main {
+        padding: 10rem 0;
         display: grid;
         grid-template-columns: 1fr 1fr;
         justify-items: center;

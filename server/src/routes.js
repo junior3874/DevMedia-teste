@@ -1,13 +1,22 @@
 const routes = require("express").Router();
-
+const yup = require("yup");
 const knex = require("./database/connection");
 
 routes
     .post("/news", async(req, res) => {
         const { title, description } = req.body;
 
-        await knex("news").insert({ title, description });
+        const bodySchema = yup.object().shape({
+            title: yup.string().max(25).required(),
+            description: yup.string().min(100).required(),
+        });
 
+        if (!(await bodySchema.isValid({ title, description }))) {
+            return res
+                .status(400)
+                .json({ error: true, message: "Validation failed!" });
+        }
+        await knex("news").insert({ title, description });
         return res.send();
     })
     .get("/", (req, res) => {
